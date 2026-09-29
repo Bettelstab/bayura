@@ -1,23 +1,67 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Bayura Garden</title>
+    <meta
+      name="description"
+      content="Bayura Garden is a little permaculture community near Gijón."
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+		<a href="/legal">Responsable</a>
+		<a href="/policies">Políticas de privacidad</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+	--color1: #0B132B;
+	--color2: #DA2C38;
+	--color3: #69F79D;
+	--color4: #F79256;
+	--color5: #838E83;
+
+  }
+  nav {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	padding: 1em;
+	background-color: #f8f8f8;
+  }
+  main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+	padding: 1em;
+  }
+</style>
+
+<style is:global>
+	section {
+		margin: 1em 0;
+		border: 1px solid #ccc;
+		padding: 1em;
+		border-radius: 8px;
+		max-width: 500px;
 	}
 </style>
