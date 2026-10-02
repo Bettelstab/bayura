@@ -1,19 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import kimchiImage from '../assets/kimchi.jpg';
+import { Image } from "astro:assets";
+import kimchiImage from "../assets/kimchi.jpg";
+import JarIcon from "~icons/fa6-solid/jar";
 ---
 
-<section>
-    <h2>Que es el Kimchi?</h2>
-El Kimchi es un plato tradicional coreano hecho de vegetales fermentados, generalmente col china y rábanos, sazonados con una mezcla de especias y condimentos. Es conocido por su sabor picante y ácido, y es un alimento básico en la dieta coreana. Además de ser delicioso, el kimchi es rico en probióticos y nutrientes, lo que lo convierte en una opción saludable para mejorar la digestión y fortalecer el sistema inmunológico.
+<section id="what-we-do">
+  <h2>
+    <JarIcon />
+    ¿Que es el Kimchi?
+  </h2>
+  <p>
+  El Kimchi es un plato tradicional coreano hecho de vegetales fermentados, generalmente
+  col china y rábanos, sazonados con una mezcla de especias y condimentos. Es conocido
+  por su sabor picante y ácido, y es un alimento básico en la dieta coreana. Además
+  de ser delicioso, el kimchi es rico en probióticos y nutrientes, lo que lo convierte
+  en una opción saludable para mejorar la digestión y fortalecer el sistema inmunológico.
+  </p>
+  <p>En nuestros talleres, puedes aprender como hacerlo en casa!</p>
 
-<div>
-En nuestros talleres, puedes aprender como hacerlo en casa!
-</div>
-
-<Image src={kimchiImage} alt="Kimchi" width={180} height={400} />
-
+  <Image src={kimchiImage} alt="Kimchi" width={180} height={400} />
 </section>
-
-<style>
-</style>

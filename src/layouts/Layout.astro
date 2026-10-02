@@ -6,20 +6,19 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Bayura Garden</title>
+    <title>Bayura Garden - Talleres de Kimchi</title>
     <meta
       name="description"
-      content="Bayura Garden is a little permaculture community near Gijón."
+      content="Aprende a hacer Kimchi en nuestros talleres en Bayura Garden, Gijón, Asturias."
     />
   </head>
   <body>
     <header>
       <nav>
-        <a href="/">Home</a>
-        <a href="/contact">Contact</a>
-        <a href="/events">Events</a>
-		<a href="/legal">Responsable</a>
-		<a href="/policies">Políticas de privacidad</a>
+        <a href="/#events">Eventos</a>
+        <a href="/#contact">Contacto</a>
+        <a href="/legal">Responsable</a>
+        <a href="/policies">Privacidad</a>
       </nav>
     </header>
     <main>
@@ -33,35 +32,56 @@
   body {
     margin: 0;
     width: 100%;
-    height: 100%;
-	--color1: #0B132B;
-	--color2: #DA2C38;
-	--color3: #69F79D;
-	--color4: #F79256;
-	--color5: #838E83;
-
+    min-height: 100vh;
+    --color1: #0b132b;
+    --color2: #da2c38;
+    --color3: #69f79d;
+    --color4: #f79256;
+    --color5: #838e83;
+    background: linear-gradient(135deg, var(--color2), var(--color4));
+    color: var(--color1);
+    font-family: "system-ui";
   }
   nav {
-	display: flex;
-	justify-content: center;
-	gap: 1em;
-	padding: 1em;
-	background-color: #f8f8f8;
-  }
-  main {
-    height: 100%;
     display: flex;
     justify-content: center;
-	padding: 1em;
+    gap: 1em;
+    padding: 2em;
+
+    a {
+      text-decoration: none;
+      color: var(--color3);
+      font-weight: bold;
+      font-family: monospace;
+    }
   }
 </style>
 
 <style is:global>
-	section {
-		margin: 1em 0;
-		border: 1px solid #ccc;
-		padding: 1em;
-		border-radius: 8px;
-		max-width: 500px;
-	}
+  h2,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: monospace;
+  }
+  section {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 15px;
+    box-shadow: 0 0 10px var(--color1);
+    padding: 1em;
+    width: min(500px, 88%);
+    line-height: 1.4;
+
+    h2 {
+      display: inline-flex;
+      gap: 0.5em;
+    }
+  }
+
+  section:target {
+    outline: 2px solid var(--color2);
+    box-shadow: 5px 5px 10px var(--color2);
+  }
 </style>

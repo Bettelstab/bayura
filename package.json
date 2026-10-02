@@ -20,6 +20,9 @@
   },
   "devDependencies": {
     "@iconify-json/at-icons": "^1.2.4",
+    "@iconify-json/fa6-solid": "^1.2.4",
+    "@iconify-json/fluent-mdl2": "^1.2.1",
+    "@iconify-json/reicon": "^1.2.6",
     "unplugin-icons": "^24.0.0",
     "wrangler": "^4.72.0"
   }
