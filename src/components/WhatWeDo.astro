@@ -4,6 +4,7 @@ import mix1 from "../assets/mix1.png";
 import mix2 from "../assets/mix2.png";
 import porridge from "../assets/porridge.png";
 import cortando from "../assets/cortando.png";
+import bote from "../assets/bote.jpg";
 import JarIcon from "~icons/fa6-solid/jar";
 ---
 
@@ -22,6 +23,7 @@ import JarIcon from "~icons/fa6-solid/jar";
   <p>En nuestros talleres, puedes aprender como hacerlo en casa!</p>
   <div class="image-container">
 
+  <Image src={bote} alt="Bote de Kimchi" width={500} quality={80} format="webp" />
   <Image src={mix1} alt="Kimchi" width={500} quality={80} format="webp" />
   <Image src={mix2} alt="Kimchi" width={500} quality={80} format="webp" />
   <Image
@@ -51,7 +53,7 @@ import JarIcon from "~icons/fa6-solid/jar";
   #what-we-do img {
     display: block;
     width: 48%;
-    max-width: 100%;
     height: auto;
+    flex: 1 auto;
   }
 </style>
