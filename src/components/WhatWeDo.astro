@@ -14,34 +14,86 @@ import JarIcon from "~icons/fa6-solid/jar";
     ¿Que es el Kimchi?
   </h2>
   <p>
-  El Kimchi es un plato tradicional coreano hecho de vegetales fermentados, generalmente
-  col china y rábanos, sazonados con una mezcla de especias y condimentos. Es conocido
-  por su sabor picante y ácido, y es un alimento básico en la dieta coreana. Además
-  de ser delicioso, el kimchi es rico en probióticos y nutrientes, lo que lo convierte
-  en una opción saludable para mejorar la digestión y fortalecer el sistema inmunológico.
+    El Kimchi es un plato tradicional coreano hecho de vegetales fermentados,
+    generalmente col china y rábanos, sazonados con una mezcla de especias y
+    condimentos. Es conocido por su sabor picante y ácido, y es un alimento
+    básico en la dieta coreana. Además de ser delicioso, el kimchi es rico en
+    probióticos y nutrientes, lo que lo convierte en una opción saludable para
+    mejorar la digestión y fortalecer el sistema inmunológico.
   </p>
   <p>En nuestros talleres, puedes aprender como hacerlo en casa!</p>
   <div class="image-container">
-
-  <Image src={bote} alt="Bote de Kimchi" width={500} quality={80} format="webp" />
-  <Image src={mix1} alt="Kimchi" width={500} quality={80} format="webp" />
-  <Image src={mix2} alt="Kimchi" width={500} quality={80} format="webp" />
-  <Image
-    src={porridge}
-    alt="Haciendo el 'porridge'"
-    width={500}
-    quality={80}
-    format="webp"
-  />
-  <Image
-    src={cortando}
-    alt="Cortando col china"
-    width={500}
-    quality={80}
-    format="webp"
-  />
+    <Image
+      src={cortando}
+      alt="Cortando col china"
+      width={500}
+      quality={80}
+      format="webp"
+    />
+    <Image
+      src={porridge}
+      alt="Haciendo el 'porridge'"
+      width={500}
+      quality={80}
+      format="webp"
+    />
+    <Image
+      src={bote}
+      alt="Bote de Kimchi"
+      width={500}
+      quality={80}
+      format="webp"
+    />
+    <div class="mix-frame" data-mix-frame data-active="mix1">
+      <Image
+        src={mix1}
+        alt="Kimchi"
+        width={500}
+        quality={80}
+        format="webp"
+        class="mix-image mix-image--first"
+      />
+      <Image
+        src={mix2}
+        alt="Kimchi"
+        width={500}
+        quality={80}
+        format="webp"
+        class="mix-image mix-image--second"
+      />
+      <span class="mix-marker" data-mix-marker aria-hidden="true"></span>
+    </div>
   </div>
 </section>
+
+<script>
+  const frames = document.querySelectorAll<HTMLElement>("[data-mix-frame]");
+
+  for (const frame of frames) {
+    const marker = frame.querySelector<HTMLElement>("[data-mix-marker]");
+    if (!marker) continue;
+
+    const updateFrame = () => {
+      frame.dataset.active =
+        marker.getBoundingClientRect().top < window.innerHeight / 2
+          ? "mix2"
+          : "mix1";
+    };
+
+    let observer: IntersectionObserver | undefined;
+    const observeMarker = () => {
+      observer?.disconnect();
+      observer = new IntersectionObserver(updateFrame, {
+        rootMargin: `0px 0px -${window.innerHeight / 2}px 0px`,
+      });
+      observer.observe(marker);
+      updateFrame();
+    };
+
+    window.addEventListener("resize", observeMarker);
+    observeMarker();
+  }
+</script>
 
 <style>
   .image-container {
@@ -49,11 +101,52 @@ import JarIcon from "~icons/fa6-solid/jar";
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+
+    img {
+      display: block;
+      width: 48%;
+      height: auto;
+      flex: 1 auto;
+    }
+
+    .mix-image {
+      width: 100%;
+    }
   }
-  #what-we-do img {
-    display: block;
+  #what-we-do .mix-frame {
+    position: relative;
     width: 48%;
-    height: auto;
     flex: 1 auto;
+    overflow: hidden;
+  }
+  .mix-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    flex: none;
+    object-fit: cover;
+  }
+  .mix-frame .mix-image--first {
+    position: relative;
+    visibility: visible;
+  }
+  .mix-frame .mix-image--second {
+    visibility: hidden;
+  }
+  .mix-frame[data-active="mix2"] .mix-image--first {
+    visibility: hidden;
+  }
+  .mix-frame[data-active="mix2"] .mix-image--second {
+    visibility: visible;
+  }
+  .mix-marker {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
 </style>
