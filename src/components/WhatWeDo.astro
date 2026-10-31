@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import kimchiImage from "../assets/kimchi.jpg";
+import mix1 from "../assets/mix1.png";
+import mix2 from "../assets/mix2.png";
+import porridge from "../assets/porridge.png";
+import cortando from "../assets/cortando.png";
 import JarIcon from "~icons/fa6-solid/jar";
 ---
 
@@ -17,6 +20,38 @@ import JarIcon from "~icons/fa6-solid/jar";
   en una opción saludable para mejorar la digestión y fortalecer el sistema inmunológico.
   </p>
   <p>En nuestros talleres, puedes aprender como hacerlo en casa!</p>
+  <div class="image-container">
 
-  <Image src={kimchiImage} alt="Kimchi" width={180} height={400} />
+  <Image src={mix1} alt="Kimchi" width={500} quality={80} format="webp" />
+  <Image src={mix2} alt="Kimchi" width={500} quality={80} format="webp" />
+  <Image
+    src={porridge}
+    alt="Haciendo el 'porridge'"
+    width={500}
+    quality={80}
+    format="webp"
+  />
+  <Image
+    src={cortando}
+    alt="Cortando col china"
+    width={500}
+    quality={80}
+    format="webp"
+  />
+  </div>
 </section>
+
+<style>
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  #what-we-do img {
+    display: block;
+    width: 48%;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
