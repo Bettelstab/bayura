@@ -1,16 +1,31 @@
 ---
 import TeacherIcon from "~icons/reicon/teacher-filled";
+import { Image } from "astro:assets";
+import max from "../assets/max-transparent.png";
 ---
 
 <section id="who-we-are">
   <h2><TeacherIcon /> Impartido por Max</h2>
 
+  <div class="image-container">
+    <Image src={max} alt="Max" width={200} quality={800} format="webp" />
+  </div>
+
   <p>
-    Soy un apasionado por los fermentos y la cocina, y me encanta compartir mis
-    conocimientos con otros. He estado experimentando con la fermentación
-    durante varios años y he aprendido mucho a través de la práctica y la
-    investigación. Me gusta enseñar a otros cómo hacer sus propios alimentos
-    fermentados en casa, y creo que es una habilidad valiosa que puede mejorar
-    la salud y el bienestar de las personas.
+    Soy un apasionado por los fermentos, la cocina y el picante. Llevo años
+    experimentando con fermentaciones diferentes, como el chucrut, la masa
+    madre, el yogur, el tempeh y más. Vivo en el campo y cultivo mi propia col
+    china.
   </p>
 </section>
+
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+
+    img {
+      border-radius: 35%;
+    }
+  }
+</style>
